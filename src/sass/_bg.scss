@@ -1,0 +1,54 @@
+.bg{
+  &-img{
+    &-full{
+      height: 480px;
+      background-size: auto 100%;
+      background-position: center;
+      width: 100%;
+    }
+  }
+  &-verde{
+    background-color: $color-verde;
+    &-variante{
+      background-color: $color-verde-variante;
+    }
+  }
+
+  &-crema{
+    background-color: $color-crema;
+  }
+  &-gris-light{
+    background-color: $gray-light;
+  }
+  &-gris-lightest{
+    background-color: $gray-lightest;
+    &-cropped{
+      position: relative;
+      &:before{
+        content: ' ';
+        height: 14px;
+        position: absolute;
+        width: 100%;
+        bottom: 100%;
+
+        left: 0;
+        background-image: url('../img/border-crop.png');
+        background-repeat: repeat-x;
+      }
+      &-bottom{
+        &:before{
+          background-image: url('../img/border-crop-bottom.png');
+          top:auto;
+          top: 100%;
+        }
+      }
+    }
+  }
+  &-gris-lighter{
+    background-color: $gray-lighter;
+  }
+  &-gris{
+    background-color: $gray;
+  }
+}
+

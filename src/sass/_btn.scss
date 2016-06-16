@@ -1,0 +1,12 @@
+.btn-ghost{
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 3px;
+  padding: 10px 35px;
+  color: #fff;
+  font-family: $ff-titles;
+  text-transform: uppercase;
+  &:hover{
+    background-color: #fff;
+  }
+}

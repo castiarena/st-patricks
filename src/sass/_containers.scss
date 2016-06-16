@@ -1,0 +1,51 @@
+.container-wrapper{
+  padding: 70px 0 0 0;
+}
+
+.container{
+  &-xs{
+    padding: 10px 0;
+  }
+  &-s{
+    padding: 15px 0;
+  }
+  &-m{
+    padding: 25px 0;
+  }
+  &-l{
+    padding: 45px 0;
+  }
+  &-xl{
+    padding: 70px 0;
+  }
+}
+
+.container-sides{
+  &-xs{
+    padding: 0 10px;
+  }
+  &-s{
+    padding: 0 15px ;
+  }
+  &-m{
+    padding: 0 25px;
+  }
+  &-l{
+    padding: 0 45px;
+  }
+  &-xl{
+    padding: 0 70px;
+  }
+  &-xxl{
+    padding: 0 220px;
+  }
+}
+
+.container-offsets{
+  &-top{
+    margin-top:-130px;
+  }
+}
+
+
+

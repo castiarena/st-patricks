@@ -1,0 +1,46 @@
+body{
+  font-family:$ff-base;
+  color: $gray;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@include mobile(){
+  .text-center-xs{
+    text-align: center;
+  }
+}
+
+
+.color{
+  &-blanco{
+    color: #fff;
+  }
+  &-verde{
+    color: $color-verde;
+    &-variante{
+      color: $color-verde-variante;
+    }
+    &-light{
+      color: $color-verde-light;
+    }
+  }
+}
+
+.font{
+  &-title{
+    font-family: $ff-titles;
+  }
+
+  &-xl{
+    font-size:$fz-xl;
+  }
+
+  &-xxl{
+    font-size:$fz-xxl;
+  }
+
+  &-xxxl{
+    font-size:$fz-xxxl;
+  }
+
+}

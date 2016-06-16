@@ -1,0 +1,39 @@
+.nivel-link{
+  position: relative;
+  display: inline-block;
+  &:hover{
+    .nivel-link-over{
+      padding-left: 60px;
+      width: 100%;
+    }
+  }
+  &-over{
+    position: absolute;
+    left: 0;
+    width: 65%;
+    height: 100%;
+    text-align: left;
+    color: #fff;
+    font-size: $fz-xl;
+    padding: 43px;
+    font-family: $ff-titles;
+    transition: all .2s linear;
+    @include mobile(){
+      width: 100%;
+    }
+  }
+  img{
+    width: 100%;
+  }
+}
+.nivel-bg{
+  &-inicial{
+    background-color: rgba($color-naranja,.9);
+  }
+  &-primario{
+    background-color: rgba($color-verde, .9);
+  }
+  &-secundario{
+    background-color: rgba($color-azul,.9);
+  }
+}

@@ -1,0 +1,32 @@
+.clear-col{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.float-col{
+  display: block;
+  float: left;
+  &__block{
+    overflow: hidden;
+  }
+}
+
+.logo-list{
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  img{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px 5px;
+    @include mobile(){
+      margin: 0;
+    }
+    @include desktop(){
+      &.logo-separate-more{
+        margin: 5px 30px;
+      }
+    }
+
+  }
+}

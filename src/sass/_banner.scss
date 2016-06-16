@@ -1,0 +1,21 @@
+.banner{
+  height: 550px;
+  background-size: cover;
+  background-position: center;
+  display: none;
+  padding-top: 220px;
+  text-align: center;
+  overflow: hidden;
+  width: 100%;
+  @include mobile(){
+    height:440px;
+    padding-top:120px;
+  }
+  &-visible{
+    display: block;
+  }
+  &-seccion{
+    height: 520px;
+    padding-top: 180px;
+  }
+}

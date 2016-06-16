@@ -1,0 +1,114 @@
+@font-face {
+    font-family: 'icomoon';
+    src:    url('../fonts/icomoon.eot?xbqdu3');
+    src:    url('../fonts/icomoon.eot?xbqdu3#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?xbqdu3') format('truetype'),
+        url('../fonts/icomoon.woff?xbqdu3') format('woff'),
+        url('../fonts/icomoon.svg?xbqdu3#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-circle-check:before {
+    content: "\e916";
+}
+.icon-chevron-right:before {
+    content: "\e917";
+}
+.icon-chevron-left:before {
+    content: "\e918";
+}
+.icon-chevron-down:before {
+    content: "\e919";
+}
+.icon-chevron-up:before {
+    content: "\e91a";
+}
+.icon-actuacion:before {
+    content: "\e900";
+}
+.icon-book:before {
+    content: "\e901";
+}
+.icon-cicle:before {
+    content: "\e902";
+}
+.icon-ciencia:before {
+    content: "\e903";
+}
+.icon-compas:before {
+    content: "\e904";
+}
+.icon-corporal:before {
+    content: "\e905";
+}
+.icon-danza:before {
+    content: "\e906";
+}
+.icon-diploma:before {
+    content: "\e907";
+}
+.icon-england-flag:before {
+    content: "\e908";
+}
+.icon-escuela:before {
+    content: "\e909";
+}
+.icon-football:before {
+    content: "\e90a";
+}
+.icon-globo-mundo:before {
+    content: "\e90b";
+}
+.icon-mail:before {
+    content: "\e90c";
+}
+.icon-medalla:before {
+    content: "\e90d";
+}
+.icon-message:before {
+    content: "\e90e";
+}
+.icon-musica:before {
+    content: "\e90f";
+}
+.icon-natacion:before {
+    content: "\e910";
+}
+.icon-notebook:before {
+    content: "\e911";
+}
+.icon-pincel:before {
+    content: "\e912";
+}
+.icon-plastica:before {
+    content: "\e913";
+}
+.icon-torre-eiffel:before {
+    content: "\e914";
+}
+.icon-user:before {
+    content: "\e915";
+}
+.icon-facebook:before {
+    content: "\ea90";
+}
+.icon-twitter:before {
+    content: "\ea96";
+}
+

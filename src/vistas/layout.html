@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Saint Patricks School{{title}}</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Volkhov:400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    <a href="/" class="header-logo">
+                        <img class="visible-md visible-lg" src="img/logo.png" alt="Saint Patrick's School">
+                        <img class="visible-xs visible-sm" height="50" src="img/logo.png" alt="Saint Patrick's School">
+                    </a>
+                    <nav class="header-menu visible-md visible-lg">
+                        {{#each nav}}
+                        <div class="header-menu__item">
+                            <a href="{{this.url}}" class="header-menu__link">
+                                {{#if this.icon}}
+                                    <i class="icon icon-{{this.icon}}"></i>
+                                {{/if}}
+                                {{this.name}}
+                                {{#if this.subnav}}
+                                    <i class="icon icon-chevron-down"></i>
+                                {{/if}}
+                            </a>
+
+                            {{#if this.subnav}}
+                            <div class="header-menu__sub-items">
+                                {{#each this.subnav}}
+                                <a href="{{this.url}}" class="header-menu__sub-link">{{this.name}}</a><br>
+                                {{/each}}
+                            </div>
+                            {{/if}}
+                        </div>
+                        {{/each}}
+                    </nav>
+                </div>
+                <div class="col-md-2 text-center">
+                    <a href="#" class="header-social"><i class="icon icon-facebook"></i></a>
+                    <a href="#" class="header-social"><i class="icon icon-twitter"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+    {{{content}}}
+    <footer class="footer bg-verde-variante">
+        <div class="footer-menu bg-verder-variante">
+            <div class="container visible-xs visible-sm">
+                <div class="text-center">
+                    <img src="img/escudo-footer.jpg" alt="Escudo escuela" width="120" class="visible-xs-inline-block visible-sm-inline-block">
+                </div>
+            </div>
+            <div class="container color-verde-light visible-lg visible-md">
+                <div class="clear-col col-md-6">
+                    <img src="img/escudo-footer.jpg" alt="Escudo escuela" class="footer-logo float-col">
+                    <div class="float-col__block">
+                        <div class="footer-list-small">
+                            <h5 class="font-title text-uppercase color-blanco">Jardín</h5>
+                            <p>Donado 2764- Coghlan. <br>
+                                C1430BCQ - Ciudad de Buenos Aires <br>
+                                Teléfono: 4544-3033</p>
+                        </div>
+                        <div class="footer-list-small">
+                            <h5 class="font-title text-uppercase color-blanco">Secundaria</h5>
+                            <p>Plaza 2838 - Coghlan. <br>
+                                C1430BCQ - Ciudad de Buenos Aires <br>
+                                Teléfono: 4545-7746</p>
+                        </div>
+
+                        <div class="footer-list-small">
+                            <h5 class="font-title text-uppercase color-blanco">Primaria</h5>
+                            <p>Nahuel Huapi 4140 - Coghlan. <br>
+                                C1430BCQ - Ciudad de Buenos Aires <br>
+                                Teléfono: 4545-1133</p>
+                        </div>
+
+                        <div class="footer-list-small">
+                            <h5 class="font-title text-uppercase color-blanco">Administración</h5>
+                            <p>Nahuel Huapi 4360- Coghlan. <br>
+                                C1430BCQ - Ciudad de Buenos Aires <br>
+                                Teléfono: 4544-3033</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-2">
+                    <h5 class="font-title text-uppercase color-blanco">Secciones</h5>
+                    <div class="footer-list">
+                        <a href="institucional.html" class="color-verde-light footer-list-link">Institucional</a>
+                        <a href="niveles.html" class="color-verde-light footer-list-link">Niveles</a>
+                        <a href="admisiones.html" class="color-verde-light footer-list-link">Admisiones</a>
+                        <a href="contacto.html" class="color-verde-light footer-list-link">Contacto</a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="font-title text-uppercase color-blanco">Portales</h5>
+                    <div class="footer-list">
+                        <a href="#" class="color-verde-light footer-list-link">Alumnos</a>
+                        <a href="#" class="color-verde-light footer-list-link">Padres</a>
+                        <a href="#" class="color-verde-light footer-list-link">Staff</a>
+                        <a href="#" class="color-verde-light footer-list-link">Ex-alumnos</a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="font-title text-uppercase color-blanco">Seguinos en</h5>
+                    <div class="footer-list">
+                        <a href="#" class="color-verde-light footer-list-link">Facebook</a>
+                        <a href="#" class="color-verde-light footer-list-link">Twitter</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-register bg-verde">
+            <div class="container text-center">
+                <h6 class="color-verde-light">St Patricks School es marca registrada. Todos los derechos reservados.</h6>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/site.js"></script>
+</body>
+</html>

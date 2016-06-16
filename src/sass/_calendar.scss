@@ -1,0 +1,20 @@
+.calendar{
+  &-month{
+    background-color: $color-verde;
+    color: #fff;
+    text-align: center;
+    margin-top: 10px;
+    padding: 5px 0;
+  }
+  &-date{
+    border: 3px solid $color-verde;
+    display: inline-block;
+    width: 83px;
+    text-align: center;
+    font-size: $fz-xl;
+    padding: 8px 0;
+  }
+  &-info{
+    padding: 0 15px;
+  }
+}
