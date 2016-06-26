@@ -2,8 +2,9 @@
   &-img{
     &-full{
       height: 480px;
-      background-size: auto 100%;
+      background-size: cover;
       background-position: center;
+      background-repeat: no-repeat;
       width: 100%;
     }
   }
@@ -49,6 +50,14 @@
   }
   &-gris{
     background-color: $gray;
+  }
+
+  &-naranja{
+    background-color: $color-naranja;
+  }
+
+  &-azul{
+    background-color: $color-azul;
   }
 }
 

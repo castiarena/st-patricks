@@ -24,4 +24,13 @@
   &-register{
     padding: 10px 0;
   }
+  &-container{
+    position: relative;
+  }
+  &-code{
+    position: absolute;
+    bottom: 10%;
+    right: 0;
+    border: 15px solid $color-verde;
+  }
 }

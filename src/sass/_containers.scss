@@ -18,26 +18,40 @@
   &-xl{
     padding: 70px 0;
   }
+  &-xxl{
+    padding: 114px 0;
+  }
 }
 
 .container-sides{
   &-xs{
-    padding: 0 10px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
+
   &-s{
-    padding: 0 15px ;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   &-m{
-    padding: 0 25px;
+    padding-left: 25px;
+    padding-right: 25px;
   }
   &-l{
-    padding: 0 45px;
+    padding-left: 45px;
+    padding-right: 45px;
   }
   &-xl{
-    padding: 0 70px;
+    padding-left: 70px;
+    padding-right: 70px;
   }
   &-xxl{
-    padding: 0 220px;
+    padding-left: 220px;
+    padding-right: 220px;
+  }
+  &-xxxl{
+    padding-left: 320px;
+    padding-right: 320px;
   }
 }
 

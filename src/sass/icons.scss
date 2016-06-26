@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'icomoon';
-    src:    url('../fonts/icomoon.eot?xbqdu3');
-    src:    url('../fonts/icomoon.eot?xbqdu3#iefix') format('embedded-opentype'),
-        url('../fonts/icomoon.ttf?xbqdu3') format('truetype'),
-        url('../fonts/icomoon.woff?xbqdu3') format('woff'),
-        url('../fonts/icomoon.svg?xbqdu3#icomoon') format('svg');
+    src:    url('../fonts/icomoon.eot?neg4vx');
+    src:    url('../fonts/icomoon.eot?neg4vx#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?neg4vx') format('truetype'),
+        url('../fonts/icomoon.woff?neg4vx') format('woff'),
+        url('../fonts/icomoon.svg?neg4vx#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -38,6 +38,9 @@
 }
 .icon-chevron-up:before {
     content: "\e91a";
+}
+.icon-educacion-fisica:before {
+    content: "\e91b";
 }
 .icon-actuacion:before {
     content: "\e900";

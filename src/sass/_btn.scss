@@ -10,3 +10,15 @@
     background-color: #fff;
   }
 }
+
+.btn-big-green{
+  color: #fff;
+  background-color: $color-verde;
+  border-radius: 15px;
+  text-align: center;
+  padding: 12px 86px;
+  &:hover{
+    color: lighten($color-verde-variante, 50%);
+    background-color: $color-verde-variante;
+  }
+}

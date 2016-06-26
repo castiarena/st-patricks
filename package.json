@@ -14,7 +14,10 @@
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-sass": "^2.3.1",
+    "gulp-uglify": "^1.5.4",
     "handlebars": "^4.0.5",
-    "jquery": "^3.0.0"
+    "jquery": "^3.0.0",
+    "parallaxy": "^2.0.1",
+    "slider-pro": "^1.2.5"
   }
 }

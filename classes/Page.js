@@ -33,8 +33,8 @@
             ]},
             {name: 'Niveles' , url: 'niveles.html' , subnav: [
                 {name: 'Nivel inicial', url: 'niveles-inicial.html'},
-                {name: 'Primario', url: 'niveles-primario.html'},
-                {name: 'Secundario', url: 'niveles-secundario.html'}
+                {name: 'Nivel Primario', url: 'niveles-primario.html'},
+                {name: 'Nivel Secundario', url: 'niveles-secundario.html'}
             ]},
             {name: 'Admisiones' , url: 'admisiones.html' },
             {name: 'Contacto' , url: 'contacto.html' },

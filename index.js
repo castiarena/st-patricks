@@ -76,6 +76,16 @@
         template: 'admisiones.html'
     });
 
+    site.perfildelegresado = new Page({
+        title: 'Perfil del Egresado',
+        template: 'perfil-del-egresado.html'
+    });
+
+    site.aprendizaje = new Page({
+        title: 'Aprendizaje',
+        template: 'aprendizaje.html'
+    });
+
     module.exports = {
         pages: site,
         eachPage: eachPage

@@ -30,3 +30,41 @@
 
   }
 }
+
+.img-offset{
+  display: inline-block;
+  margin-top: -12%;
+}
+
+//=== generic
+
+a,button,input[type="button"]{
+  transition: all .2s linear;
+
+  color: $color-verde-variante;
+  &:hover,&:focus{
+    color: darken($color-verde-variante, 10%);
+    text-decoration: none;
+  }
+}
+
+//== parallaxy
+
+[data-parallaxy] {
+  position: relative;
+  overflow: hidden;
+}
+
+[data-parallaxy] > *:not([data-parallaxy-ignore]) {
+  position: absolute;
+  display: block;
+  top: 0;
+  -webkit-transform-origin: left top;
+  -moz-transform-origin: left top;
+  -ms-transform-origin: left top;
+  transform-origin: left top;
+}
+
+[data-parallaxy-ignore] {
+  position: relative;
+}

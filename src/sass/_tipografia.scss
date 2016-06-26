@@ -24,6 +24,12 @@ body{
       color: $color-verde-light;
     }
   }
+  &-naranja{
+    color: $color-naranja;
+  }
+  &-azul{
+    color: $color-azul;
+  }
 }
 
 .font{
@@ -35,6 +41,10 @@ body{
     font-size:$fz-xl;
   }
 
+  &-mxl{
+    font-size:$fz-mxl;
+  }
+
   &-xxl{
     font-size:$fz-xxl;
   }
@@ -43,4 +53,10 @@ body{
     font-size:$fz-xxxl;
   }
 
+}
+
+.text{
+  &-italic{
+    font-style: italic;
+  }
 }

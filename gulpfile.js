@@ -14,7 +14,7 @@ gulp.task('build',function(){
 });
 
 gulp.task('js:build',function(){
-    gulp.src(['./src/js/jquery/*.js','./src/js/*.js' ])
+    gulp.src(['./node_modules/parallaxy/src/parallaxy.js','./src/js/jquery/*.js','./src/js/*.js' ])
         .pipe(concat('site.js'))
         .pipe(gulp.dest('./build/js'));
 });
@@ -56,9 +56,10 @@ gulp.task('server',function(){
     browserSync.init({
         server: "./build"
     });
-    gulp.watch('./src/**/*.js', ['build']);
-    gulp.watch('./src/**/*', ['build']);
-    gulp.watch('./src/img/*', ['assets:build']);
+    gulp.watch('./src/**/*.js', ['js:build']);
+    gulp.watch('./src/**/*.scss', ['css:build']);
+    gulp.watch('./src/**/*.html', ['html:build']);
+    gulp.watch('./src/img/**.*', ['assets:build']);
     gulp.watch('./build/*').on('change', browserSync.reload);
 
 });
