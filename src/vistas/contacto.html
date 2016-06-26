@@ -68,7 +68,91 @@
 </section>
 
 <section>
-    <div class="bg-img-full" style="background-image: url('img/contacto-map.jpg')">
-        <span class="sr-only">Franja vacía</span>
+    <div class="bg-img-full" id="map">
+        <!-- Google maps loadder -->
     </div>
 </section>
+
+<script>
+    var map, markers = [], infoWindows = [], markerTemplate = '<h3 class="color-verde font-title">{|title|}</h3><p>{|text|}</p>'
+        data = [
+            {
+                direction: 'Donado 2764, Buenos Aires, Ciudad Autónoma de Buenos Aires',
+                title: 'Jardin',
+                text:   'Donado 2764- Coghlan. <br> '+
+                        'C1430BCQ - Ciudad de Buenos Aires <br>'+
+                        'Teléfono: 4544-3033'
+            },
+            {
+                direction: 'Coghlan - Plaza 2838, Buenos Aires, Ciudad Autónoma de Buenos Aires',
+                title: 'Primaria',
+                text:   'Plaza 2838 - Coghlan.<br>'+
+                        'C1430BCQ - Ciudad de Buenos Aires <br>'+
+                        'Teléfono: 4545-7746'
+            },
+            {
+                direction: 'Coghlan - Nahuel Huapi 4140, Buenos Aires, Ciudad Autónoma de Buenos Aires',
+                title: 'Secundaria',
+                text:   'Nahuel Huapi 4140 - Coghlan. <br>'+
+                        'C1430BCQ - Ciudad de Buenos Aires <br>'+
+                        'Teléfono: 4545-1133'
+            },
+            {
+                direction: 'Coghlan - Nahuel Huapi 4360, Buenos Aires, Ciudad Autónoma de Buenos Aires',
+                title: 'Administración',
+                text:   'Nahuel Huapi 4360- Coghlan. <br>' +
+                        'C1430BCQ - Ciudad de Buenos Aires <br> ' +
+                        'Teléfono: 4544-3033'
+            }
+        ];
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat:  -34.5656866, lng:-58.4811937},
+            zoom: 17,
+            disableDefaultUI: true,
+            scrollwheel: false
+        });
+
+        for(var i = 0; i < data.length ; i++){
+            var namePlace = data[i].title,
+                placesService = new google.maps.places.PlacesService(map),
+                    request = {
+                        name: data[i].name,
+                        query: data[i].direction
+                    };
+            placesService.textSearch(request, function(results, status){
+                if (status == google.maps.places.PlacesServiceStatus.OK) {
+                    var marker =  new google.maps.Marker({
+                            map: map,
+                            name: results[0].name,
+                            icon: 'img/marker.png',
+                            position: results[0].geometry.location
+                        });
+
+                    marker.addListener('click', function() {
+                        var tMarker = this,
+                            infoWindow = null;
+                        for(var j= 0; j < data.length ; j++ ){
+                            if( data[j].direction.match(tMarker.name)){
+                                var contentTxt = markerTemplate.replace('{|title|}',data[j].title);
+                                contentTxt = contentTxt.replace('{|text|}', data[j].text);
+                                infoWindow = new google.maps.InfoWindow({
+                                    content: contentTxt
+                                })
+                            }
+                        }
+                        for(var j = 0;  j < infoWindows.length ; j++){
+                            infoWindows[j].close();
+                        }
+                        infoWindow.open(map, marker);
+                        infoWindows.push(infoWindow);
+
+                    });
+                    markers.push(marker);
+                }
+            });
+        }
+
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7fs5VBYtlQ7ZRK2dLFyPBBii-RNHOee8&callback=initMap&libraries=places" async defer></script>

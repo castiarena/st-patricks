@@ -20,6 +20,11 @@
 .header-logo{
   position: absolute;
   margin: 5px 30px;
+  img{
+    height: 96px;
+    transition: all .1s linear;
+  }
+
 }
 
 .header-menu{
