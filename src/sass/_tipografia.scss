@@ -10,6 +10,12 @@ body{
   }
 }
 
+@include tablet(){
+  .text-center-sm{
+    text-align: center;
+  }
+}
+
 
 .color{
   &-blanco{
@@ -36,21 +42,56 @@ body{
   &-title{
     font-family: $ff-titles;
   }
+  &-larger{
+    font-size: $fz-larger;
+    @include mobile(){
+      font-size: $fz-larger * 0.6;
+    }
+  }
+
+  &-extra-large{
+    font-size: $fz-extra-large;
+
+    @include mobile(){
+      font-size: $fz-extra-large/2;
+    }
+  }
+
+  &-extra-larger{
+    font-size: $fz-extra-larger;
+
+    @include mobile(){
+      font-size: $fz-extra-larger/2;
+    }
+  }
 
   &-xl{
     font-size:$fz-xl;
+
+    @include mobile(){
+      font-size: $fz-xl/2;
+    }
   }
 
   &-mxl{
     font-size:$fz-mxl;
+    @include mobile(){
+      font-size:$fz-mxl/2;
+    }
   }
 
   &-xxl{
     font-size:$fz-xxl;
+    @include mobile(){
+      font-size: $fz-xxl/2;
+    }
   }
 
   &-xxxl{
     font-size:$fz-xxxl;
+    @include mobile(){
+      font-size: $fz-xxxl/2;
+    }
   }
 
 }
@@ -58,5 +99,8 @@ body{
 .text{
   &-italic{
     font-style: italic;
+  }
+  &-extend{
+    line-height: 1.3em;
   }
 }

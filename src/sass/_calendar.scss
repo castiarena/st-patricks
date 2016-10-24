@@ -1,4 +1,15 @@
 .calendar{
+  margin: 15px 0;
+  padding: 15px 0;
+  border-top: 1px solid $gray-lighter;
+  @include mobile{
+    padding: 15px;
+  }
+
+  @include tablet{
+    padding: 15px;
+  }
+
   &-month{
     background-color: $color-verde;
     color: #fff;

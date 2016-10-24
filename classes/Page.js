@@ -24,21 +24,21 @@
          * @type {Array}
          */
         that.navLinks = [
-            {name: 'Institucional' , url: 'institucional.html' ,
+            {name: 'Institucional' , url: '#' ,
                 subnav: [
                     {name: 'Ideario', url: 'ideario.html'},
                     {name: 'Historia', url: 'historia.html'},
                     {name: 'Perfil del egresado', url: 'perfil-del-egresado.html'},
                     {name: 'Aprendizaje', url: 'aprendizaje.html'}
             ]},
-            {name: 'Niveles' , url: 'niveles.html' , subnav: [
+            {name: 'Niveles' , url: '#' , subnav: [
                 {name: 'Nivel inicial', url: 'niveles-inicial.html'},
                 {name: 'Nivel Primario', url: 'niveles-primario.html'},
                 {name: 'Nivel Secundario', url: 'niveles-secundario.html'}
             ]},
             {name: 'Admisiones' , url: 'admisiones.html' },
             {name: 'Contacto' , url: 'contacto.html' },
-            {name: 'Comunidad Educativa' , url: 'comunidad-educativa.html' , icon: 'user' }
+            {name: 'Comunidad Educativa' , url: 'http://www.stpatricks.esc.edu.ar/STP_opciones.html' , icon: 'user' }
         ]
     }
 

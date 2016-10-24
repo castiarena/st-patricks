@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'icomoon';
-    src:    url('../fonts/icomoon.eot?neg4vx');
-    src:    url('../fonts/icomoon.eot?neg4vx#iefix') format('embedded-opentype'),
-        url('../fonts/icomoon.ttf?neg4vx') format('truetype'),
-        url('../fonts/icomoon.woff?neg4vx') format('woff'),
-        url('../fonts/icomoon.svg?neg4vx#icomoon') format('svg');
+    src:  url('../fonts/icomoon.eot?xy5bhc');
+    src:  url('../fonts/icomoon.eot?xy5bhc#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?xy5bhc') format('truetype'),
+    url('../fonts/icomoon.woff?xy5bhc') format('woff'),
+    url('../fonts/icomoon.svg?xy5bhc#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -38,6 +38,15 @@
 }
 .icon-chevron-up:before {
     content: "\e91a";
+}
+.icon-doc-medal:before {
+    content: "\e91c";
+}
+.icon-globa-globe:before {
+    content: "\e91d";
+}
+.icon-hand:before {
+    content: "\e91e";
 }
 .icon-educacion-fisica:before {
     content: "\e91b";
@@ -107,11 +116,5 @@
 }
 .icon-user:before {
     content: "\e915";
-}
-.icon-facebook:before {
-    content: "\ea90";
-}
-.icon-twitter:before {
-    content: "\ea96";
 }
 

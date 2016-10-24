@@ -21,6 +21,7 @@
     margin: 5px 5px;
     @include mobile(){
       margin: 0;
+      width: 40%;
     }
     @include desktop(){
       &.logo-separate-more{
@@ -67,4 +68,60 @@ a,button,input[type="button"]{
 
 [data-parallaxy-ignore] {
   position: relative;
+}
+
+
+//== rewrite rows
+
+@include mobile(){
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  br{
+    display: none;
+  }
+}
+
+.ideario-logo{
+  width: 129px;
+  @include mobile(){
+    width: 170px;
+  }
+}
+
+.contact-icon{
+  @include mobile(){
+    padding-top:10px;
+  }
+}
+
+.admisiones-logo{
+  @include mobile(){
+    margin-top: -252px;
+  }
+}
+
+
+@include mobile{
+  .clear-cols-xs{
+    [class*='col-']{
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+
+@include tablet{
+  .clear-cols-sm{
+    [class*='col-']{
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+body,html{
+  overflow-x: hidden;
 }

@@ -8,6 +8,12 @@
   padding: 0;
   z-index: 10;
   width: 100%;
+  @include mobile(){
+    background-color: rgba(0,0,0,.8);
+  }
+  @include tablet(){
+    background-color: rgba(0,0,0,.6);
+  }
 }
 
 .header-social{
@@ -24,17 +30,42 @@
     height: 96px;
     transition: all .1s linear;
   }
-
+  @include mobile(){
+    position: static;
+    margin: 5px;
+    img{
+      height: 50px;
+      display: inline-block;
+      margin: 8px 5px;
+    }
+  }
 }
 
 .header-menu{
   display: inline-block;
   text-align: right;
   width: 100%;
+  @include mobile(){
+    position: absolute;
+    display: block;
+    background-color: rgba(0,0,0,.8);
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 103;
+  }
   &__item{
     display: inline-block;
     position: relative;
     padding: 5px 0;
+    @include mobile(){
+      display: block;
+      text-align: center;
+    }
+    @include tablet{
+      display: block;
+      text-align: center;
+    }
   }
   &__sub-items{
     text-align: left;
@@ -44,6 +75,18 @@
     width: 290px;
     background-color: rgba(0,0,0,.5);
     padding: 10px 10px;
+    display: none;
+    @include mobile(){
+      width: 100%;
+      position: static;
+    }
+    @include tablet{
+      width: 100%;
+      position: static;
+    }
+  }
+  &-mobile{
+    position: relative;
     display: none;
   }
 }
@@ -68,9 +111,42 @@
   }
   &:active,&:focus,&:visited{
     text-decoration: none;
-    color: lighten($gray-light, 3%);
+    color: white;
   }
 }
 .header-menu__sub-link{
-  margin: 5px ;
+  margin: 5px;
+  @include mobile(){
+    display: block;
+    text-align: center;
+  }
+  @include tablet(){
+    display: block;
+    text-align: center;
+  }
+}
+
+
+//** hamburguer mobile menu
+.header-menu-hide{
+  display: none;
+}
+.header-menu{
+  &-burguer{
+    display: inline-block;
+    float: right;
+    width: 30px;
+    margin: 15px;
+    &-meet,&:after, &:before{
+      content: ' ';
+      display: block;
+      margin: 3px 0 4px ;
+      width: 100%;
+      height: 5px;
+      background-color: #fff;
+      border-radius: 2px;
+    }
+  }
+
+
 }

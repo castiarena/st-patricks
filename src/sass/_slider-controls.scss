@@ -1,6 +1,27 @@
 .slider-container{
   position: relative;
+  z-index: 0;
+  img{
+    width: 25%;
+  }
+  @include mobile(){
+    img{
+      width: 60%;
+    }
+  }
 }
+
+.slider__elem{
+  height: 175px;
+
+  @include mobile(){
+    height: 280px;
+  }
+  @include tablet(){
+    height: 240px;
+  }
+}
+
 .slider-control{
   display: inline-block;
   &-content-center{

@@ -16,7 +16,12 @@
   background-color: $color-verde;
   border-radius: 15px;
   text-align: center;
-  padding: 12px 86px;
+  padding: 18px 40px;
+  @include mobile(){
+    white-space: normal;
+    margin: 10px 0;
+    padding: 12px;
+  }
   &:hover{
     color: lighten($color-verde-variante, 50%);
     background-color: $color-verde-variante;

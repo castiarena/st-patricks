@@ -4,24 +4,39 @@
 
 .container{
   &-xs{
-    padding: 10px 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
   &-s{
-    padding: 15px 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
   &-m{
-    padding: 25px 0;
+    padding-top: 25px;
+    padding-bottom: 25px;
   }
   &-l{
-    padding: 45px 0;
+    padding-top: 45px;
+    padding-bottom: 45px;
   }
   &-xl{
-    padding: 70px 0;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    @include mobile{
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
   }
   &-xxl{
-    padding: 114px 0;
+    padding-top: 114px;
+    padding-bottom: 114px;
+    @include mobile{
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
   }
 }
+
 
 .container-sides{
   &-xs{
@@ -36,22 +51,52 @@
   &-m{
     padding-left: 25px;
     padding-right: 25px;
+    @include mobile{
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   }
   &-l{
     padding-left: 45px;
     padding-right: 45px;
+    @include mobile{
+      padding-left: 23px;
+      padding-right: 23px;
+    }
   }
   &-xl{
     padding-left: 70px;
     padding-right: 70px;
+    @include mobile{
+      padding-left: 25px;
+      padding-right: 25px;
+    }
   }
   &-xxl{
     padding-left: 220px;
     padding-right: 220px;
+    @include mobile{
+      padding-left: 25px;
+      padding-right: 25px;
+    }
   }
   &-xxxl{
     padding-left: 320px;
     padding-right: 320px;
+    @include mobile{
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+  }
+}
+[class*="container-sides-"]{
+  @include tablet(){
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  @include mobile(){
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
@@ -61,5 +106,75 @@
   }
 }
 
+@include mobile(){
+  .container-mobile{
+    &-xs{
+      padding: 10px 0;
+    }
+    &-s{
+      padding: 15px 0;
+    }
+    &-m{
+      padding: 20px 0;
+    }
+    &-l{
+      padding: 25px 0;
+    }
+    &-xl{
+      padding: 30px 0;
+    }
+    &-xxl{
+      padding: 30px 0;
+    }
+    &-top{
+      &-xs{
+        padding-top: 10px;
+      }
+      &-s{
+        padding-top: 15px;
+      }
+      &-m{
+        padding-top: 20px;
+      }
+      &-l{
+        padding-top: 25px;
+      }
+      &-xl{
+        padding-top: 30px;
+      }
+      &-xxl{
+        padding-top: 30px;
+      }
+      &-cero{
+        padding-top: 0;
+      }
+    }
+
+    &-bottom{
+      &-xs{
+        padding-bottom: 10px;
+      }
+      &-s{
+        padding-bottom: 15px;
+      }
+      &-m{
+        padding-bottom: 20px;
+      }
+      &-l{
+        padding-bottom: 25px;
+      }
+      &-xl{
+        padding-bottom: 30px;
+      }
+      &-xxl{
+        padding-bottom: 30px;
+      }
+      &-cero{
+        padding-bottom: 0;
+      }
+    }
+  }
+
+}
 
 

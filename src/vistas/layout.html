@@ -8,16 +8,23 @@
     <link rel="stylesheet" href="css/icons.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,400i,700,700i" rel="stylesheet" type="text/css">
+    <link rel="prefetch" href="http://www.stpatricks.esc.edu.ar/">
+
+    <link rel="icon" type="image/png" href="img/favicon-48x48.png">
+    <!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"><![endif]-->
 </head>
 <body>
     <header class="header">
         <div class="container">
             <div class="row">
-                <div class="col-md-10">
+                <div class="col-md-11 col-lg-10">
                     <a href="/" class="header-logo">
                         <img class="visible-md visible-lg" src="img/logo.png" alt="Saint Patrick's School">
-                        <img class="visible-xs visible-sm" height="50" src="img/logo.png" alt="Saint Patrick's School">
+                        <img class="visible-xs-inline-block visible-sm" height="50" src="img/logo.png" alt="Saint Patrick's School">
                     </a>
+                    <div class="visible-xs visible-sm header-menu-burguer">
+                        <span class="header-menu-burguer-meet"></span>
+                    </div>
                     <nav class="header-menu visible-md visible-lg">
                         {{#each nav}}
                         <div class="header-menu__item">
@@ -42,16 +49,44 @@
                         {{/each}}
                     </nav>
                 </div>
-                <div class="col-md-2 text-center">
+                <div class="col-md-1 col-lg-2 text-center hidden-xs hidden-sm">
                     <a href="#" class="header-social"><i class="icon icon-facebook"></i></a>
                     <a href="#" class="header-social"><i class="icon icon-twitter"></i></a>
                 </div>
             </div>
 
         </div>
+        <!-- header menu mobile -->
+        <div class="header-menu-mobile">
+            <nav class="header-menu header-menu-hide visible-xs visible-sm">
+                {{#each nav}}
+                <div class="header-menu__item">
+                    <a href="{{this.url}}" class="header-menu__link">
+                        {{#if this.icon}}
+                        <i class="icon icon-{{this.icon}}"></i>
+                        {{/if}}
+                        {{this.name}}
+                        {{#if this.subnav}}
+                        <i class="icon icon-chevron-down"></i>
+                        {{/if}}
+                    </a>
 
+                    {{#if this.subnav}}
+                    <div class="header-menu__sub-items">
+                        {{#each this.subnav}}
+                        <a href="{{this.url}}" class="header-menu__sub-link">{{this.name}}</a><br>
+                        {{/each}}
+                    </div>
+                    {{/if}}
+                </div>
+                {{/each}}
+            </nav>
+
+        </div>
     </header>
-    {{{content}}}
+    <main id="main" style="opacity: 0">
+        {{{content}}}
+    </main>
     <footer class="footer bg-verde-variante">
         <div class="footer-menu bg-verder-variante">
             <div class="container visible-xs visible-sm">
@@ -64,23 +99,23 @@
                     <img src="img/escudo-footer.jpg" alt="Escudo escuela" class="footer-logo float-col">
                     <div class="float-col__block">
                         <div class="footer-list-small">
-                            <h5 class="font-title text-uppercase color-blanco">Jardín</h5>
+                            <h5 class="font-title text-uppercase color-blanco">Kindergarten</h5>
                             <p>Donado 2764- Coghlan. <br>
                                 C1430BCQ - Ciudad de Buenos Aires <br>
                                 Teléfono: 4544-3033</p>
                         </div>
                         <div class="footer-list-small">
                             <h5 class="font-title text-uppercase color-blanco">Secundaria</h5>
-                            <p>Plaza 2838 - Coghlan. <br>
+                            <p>Nahuel Huapí 4134/40. <br>
                                 C1430BCQ - Ciudad de Buenos Aires <br>
-                                Teléfono: 4545-7746</p>
+                                Teléfono: 4545-1133</p>
                         </div>
 
                         <div class="footer-list-small">
                             <h5 class="font-title text-uppercase color-blanco">Primaria</h5>
-                            <p>Nahuel Huapi 4140 - Coghlan. <br>
+                            <p>Nahuel Huapi 4141/55 - Coghlan. <br>
                                 C1430BCQ - Ciudad de Buenos Aires <br>
-                                Teléfono: 4545-1133</p>
+                                Teléfono: 4545-7746</p>
                         </div>
 
                         <div class="footer-list-small">
@@ -121,10 +156,8 @@
         </div>
         <div class="footer-register bg-verde">
             <div class="footer-container container text-center">
-                <h6 class="color-verde-light">St Patricks School es marca registrada. Todos los derechos reservados.</h6>
-                <div class="footer-code">
-                    <img src="img/footer-code.jpg" alt="code">
-                </div>
+                <h6 class="color-verde-light">St. Patrick`s School es marca registrada. Todos los derechos reservados.</h6>
+                <a href="http://qr.afip.gob.ar/?qr=JbhecuH63H5ThwOdeZEoEQ,," target="_F960AFIPInfo" class="footer-code"><img src="http://www.afip.gob.ar/images/f960/DATAWEB.jpg" border="0" height="90"></a>
             </div>
 
         </div>

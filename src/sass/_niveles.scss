@@ -1,6 +1,7 @@
 .nivel-link{
   position: relative;
   display: inline-block;
+  width: 100%;
   &:hover{
     .nivel-link-over{
       padding-left: 60px;
@@ -19,6 +20,10 @@
     font-family: $ff-titles;
     transition: all .2s linear;
     @include mobile(){
+      width: 100%;
+    }
+    @include tablet(){
+      padding: 23px;
       width: 100%;
     }
   }
@@ -42,4 +47,24 @@
 .nivel-ficha{
   display: inline-block;
   margin-bottom:-17%;
+}
+
+.nivel-ficha__title {
+  @include mobile(){
+    margin: 35px 0 0 0;
+  }
+}
+
+.niveles-objetivos-container{
+  padding: 0 40px 0 60px;
+  @include mobile(){
+    padding: 0 10px;
+  }
+}
+
+.nivel-icon{
+  font-size: 61px;
+  @include mobile(){
+    font-size:33px;
+  }
 }

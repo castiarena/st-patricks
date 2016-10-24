@@ -1,8 +1,12 @@
 var gulp = require('gulp'),
     fs = require('fs'),
     sass = require('gulp-sass'),
+    uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
     site = require('./index'),
+    htmlmin = require('gulp-htmlmin'),
+    autoprefixer = require('gulp-autoprefixer'),
+    imageop = require('gulp-image-optimization'),
     browserSync = require('browser-sync');
 
 
@@ -14,8 +18,9 @@ gulp.task('build',function(){
 });
 
 gulp.task('js:build',function(){
-    gulp.src(['./node_modules/parallaxy/src/parallaxy.js','./src/js/jquery/*.js','./src/js/*.js' ])
+    gulp.src(['./node_modules/handlebars/dist/handlebars.js','./node_modules/parallaxy/src/parallaxy.js','./src/js/jquery/*.js','./src/js/*.js' ])
         .pipe(concat('site.js'))
+        .pipe(uglify())
         .pipe(gulp.dest('./build/js'));
 });
 
@@ -62,4 +67,58 @@ gulp.task('server',function(){
     gulp.watch('./src/img/**.*', ['assets:build']);
     gulp.watch('./build/*').on('change', browserSync.reload);
 
+});
+
+gulp.task('server:dist', function(){
+    browserSync.init({
+        server: './dist'
+    });
+});
+
+gulp.task('html:minify', function() {
+    return gulp.src('build/*.html')
+        .pipe(htmlmin({collapseWhitespace: true}))
+        .pipe(gulp.dest('dist'))
+});
+
+gulp.task('css:dist',function(){
+    gulp.src('./src/sass/styles.scss')
+        .pipe(sass({outputStyle: 'compressed'}))
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(gulp.dest('./dist/css'));
+
+    gulp.src('./src/sass/icons.scss')
+        .pipe(sass({outputStyle: 'compressed'}))
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(gulp.dest('./dist/css'));
+});
+
+gulp.task('js:dist',function(){
+    gulp.src('./build/js/*')
+        .pipe(gulp.dest('./dist/js'));
+});
+
+gulp.task('assets:dist',function(){
+    gulp.src('./build/fonts/*')
+        .pipe(gulp.dest('./dist/fonts'));
+    gulp.src('./build/img/*')
+        .pipe(imageop({
+            optimizationLevel: 5,
+            progressive: true,
+            interlaced: true
+        }))
+        .pipe(gulp.dest('./dist/img'));
+});
+
+gulp.task('dist',function() {
+    gulp.start('html:minify');
+    gulp.start('css:dist');
+    gulp.start('js:dist');
+    gulp.start('assets:dist');
 });
