@@ -226,7 +226,8 @@
                                     time: allDay ? '' : ', '+ startHour + ':' + startMin + ' - '+ endHour + ':' + endMin,
                                     date: dateTime[0],
                                     fullDate: date[2] + " de " + instance.monthFullString(date[1]) ,
-                                    title: item.summary
+                                    title: item.summary,
+                                    author: item.organizer.displayName
                                 });
                             }
                             callback(results, instance);
