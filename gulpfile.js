@@ -20,7 +20,7 @@ gulp.task('build',function(){
 gulp.task('js:build',function(){
     gulp.src(['./node_modules/handlebars/dist/handlebars.js','./node_modules/parallaxy/src/parallaxy.js','./src/js/jquery/*.js','./src/js/*.js' ])
         .pipe(concat('site.js'))
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(gulp.dest('./build/js'));
 });
 

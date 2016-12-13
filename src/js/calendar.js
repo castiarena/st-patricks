@@ -1,11 +1,32 @@
+(function(){
+    Object.size = function(obj) {
+        var size = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+    };
+}());
+
 (function(win, doc){
     'use strict';
+
+    var calendarsIds = {
+        "Kindergarten" : "sps.arg@gmail.com",
+        //"Cumpleaños" : "#contacts@group.v.calendar.google.com",
+        "Feriados" : "bl3rgjdsjqu98eecok3jdc7l5s@group.calendar.google.com",
+        "Institucional": "9r1ull3mlekthb98966fo1edf0@group.calendar.google.com",
+        "Nivel Primario" : "7uq7o4va9pup868m72kaslcf48@group.calendar.google.com",
+        "Nivel Secundarion" : "tpm2ln2cjvjn3e6c26bokjdods@group.calendar.google.com",
+        //"S.U.M - Eventos": "0p3vilqo73plhokrjd857p9rk4@group.calendar.google.com",
+        "Festivos" : "es.ar#holiday@group.v.calendar.google.com"
+    };
 
     var config = {
             today : new Date(),
             clientId : '1079516781600-212p1jk45grqpckktc693i042f59a7ai.apps.googleusercontent.com',
             apiKey : 'AIzaSyCpyjnQV-xj_15SroWw0ZitIxclZ25qVb8',
-            userEmail : 'sps.arg@gmail.com',
+            userEmail : calendarsIds["Nivel Secundarion"],
             userTimeZone : 'Buenos Aires, Argentina',
             maxRows : 7,
             scopes : 'https://www.googleapis.com/auth/calendar' ,
@@ -49,6 +70,7 @@
 
     function Calendar (){
         this.template = Handlebars.compile(templates.calendar);
+        this.events = [];
         return this;
     }
 
@@ -113,54 +135,102 @@
 
     };
 
+    Calendar.prototype.multiRequest = function(calendarList){
+        var that = this,
+            array = [],
+            calls = 0,
+            totalCalls = Object.size(calendarList),
+            config = function(calendarId){
+                return {
+                    'calendarId' : calendarId,
+                    'timeZone' : config.userTimeZone,
+                    'singleEvents': true,
+                    'timeMin': new Date().toISOString(), //gathers only events not happened yet
+                    'maxResults': config.maxRows,
+                    'orderBy': 'startTime'
+                }
+            };
+
+        var inmuted = {
+            end: null
+        };
+
+        var monad = {
+            and: that.multiRequest ,
+            then: function(callback){
+                for( var k in calendarList){
+                    if(calendarList.hasOwnProperty(k)){
+                        var conf = config(calendarList[k]),
+                            request = gapi.client.calendar.events.list(conf);
+                        request.execute(function(resp){
+                            calls++;
+                            array = $.merge(array, resp.items);
+                            if(calls === totalCalls){
+                                return inmuted.end(array);
+                            }
+                        });
+                    }
+                }
+                return monad;
+            },
+            end: function(callback){
+                inmuted.end = callback;
+            }
+        };
+
+        return monad;
+    };
+
     Calendar.prototype.handleAuthResult = function(authResult, callback, instance){
         var that = this;
         if (authResult) {
             gapi.client.load('calendar', 'v3', function () {
-                var request = gapi.client.calendar.events.list({
-                    'calendarId' : config.userEmail,
-                    'timeZone' : config.userTimeZone,
-                    'singleEvents': true,
-                    'timeMin': config.today.toISOString(), //gathers only events not happened yet
-                    'maxResults': config.maxRows,
-                    'orderBy': 'startTime'
-                });
-                request.execute(function(resp){
-                    var results = [];
-                    for (var i = 0; i < resp.items.length; i++) {
-                        var item = resp.items[i],
-                            allDay = item.start.date? true : false,
-                            startDT = allDay ? item.start.date : item.start.dateTime,
-                            dateTime = startDT.split("T"), //split date from tim,
-                            dateTimeEnd = allDay ? null : item.end.dateTime.split("T"),
-                            date = dateTime[0].split("-"), //split yyyy mm d,
-                            startYear = date[0],
-                            startMonth = instance.monthString(date[1]),
-                            startDay = date[2],
-                            startDateISO = new Date(startMonth + " " + startDay + ", " + startYear + " 00:00:00"),
-                            startDayWeek = instance.dayString(startDateISO.getDay());
-
-                        if(!allDay){
-                            var startTtime = dateTime[1].split(":"); //split hh ss etc...
-                            var startHour = startTtime[0];
-                            var startMin = startTtime[1];
-                            var endTime = dateTimeEnd[1].split(":"); //split hh ss etc...
-                            var endHour = endTime[0];
-                            var endMin = endTime[1];
-                        }
-                        results.push({
-                            month: startMonth,
-                            day: startDay,
-                            link: item.htmlLink,
-                            eid: instance.getParameterByName('eid',item.htmlLink),
-                            time: allDay ? '' : ', '+ startHour + ':' + startMin + ' - '+ endHour + ':' + endMin,
-                            date: dateTime[0],
-                            fullDate: date[2] + " de " + instance.monthFullString(date[1]) ,
-                            title: item.summary
+                that.multiRequest(calendarsIds)
+                    .then(function(resp){
+                        that.events.push(resp.items);
+                    })
+                    .end(function(array){
+                        array.sort(function(a,b){
+                            // Turn your strings into dates, and then subtract them
+                            // to get a value that is either negative, positive, or zero.
+                            return -(new Date(b.start.date) - new Date(a.start.date));
                         });
-                    }
-                    callback(results, instance);
-                });
+
+                        var results = [];
+                            for (var i = 0; i < array.length; i++) {
+                                var item = array[i],
+                                    allDay = item.start.date? true : false,
+                                    startDT = allDay ? item.start.date : item.start.dateTime,
+                                    dateTime = startDT.split("T"), //split date from tim,
+                                    dateTimeEnd = allDay ? null : item.end.dateTime.split("T"),
+                                    date = dateTime[0].split("-"), //split yyyy mm d,
+                                    startYear = date[0],
+                                    startMonth = instance.monthString(date[1]),
+                                    startDay = date[2],
+                                    startDateISO = new Date(startMonth + " " + startDay + ", " + startYear + " 00:00:00"),
+                                    startDayWeek = instance.dayString(startDateISO.getDay());
+
+                                if(!allDay){
+                                    var startTtime = dateTime[1].split(":"); //split hh ss etc...
+                                    var startHour = startTtime[0];
+                                    var startMin = startTtime[1];
+                                    var endTime = dateTimeEnd[1].split(":"); //split hh ss etc...
+                                    var endHour = endTime[0];
+                                    var endMin = endTime[1];
+                                }
+                                results.push({
+                                    month: startMonth,
+                                    day: startDay,
+                                    link: item.htmlLink,
+                                    eid: instance.getParameterByName('eid',item.htmlLink),
+                                    time: allDay ? '' : ', '+ startHour + ':' + startMin + ' - '+ endHour + ':' + endMin,
+                                    date: dateTime[0],
+                                    fullDate: date[2] + " de " + instance.monthFullString(date[1]) ,
+                                    title: item.summary
+                                });
+                            }
+                            callback(results, instance);
+                    });
             });
         }
     };
@@ -172,7 +242,7 @@
     }
 
     win.Calendar = Calendar;
-})(window, document);
+}(window, document));
 
 
 //
