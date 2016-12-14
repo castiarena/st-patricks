@@ -14,7 +14,7 @@
     var calendarsIds = {
         "Kindergarten" : "sps.arg@gmail.com",
         //"Cumpleaños" : "#contacts@group.v.calendar.google.com",
-        "Feriados" : "bl3rgjdsjqu98eecok3jdc7l5s@group.calendar.google.com",
+        "Feriados" : "9r1ull3mlekthb98966fo1edf0@group.calendar.google.com",
         "Institucional": "9r1ull3mlekthb98966fo1edf0@group.calendar.google.com",
         "Nivel Primario" : "7uq7o4va9pup868m72kaslcf48@group.calendar.google.com",
         "Nivel Secundarion" : "tpm2ln2cjvjn3e6c26bokjdods@group.calendar.google.com",
@@ -138,6 +138,7 @@
     Calendar.prototype.multiRequest = function(calendarList){
         var that = this,
             array = [],
+            authors = [],
             calls = 0,
             totalCalls = Object.size(calendarList),
             config = function(calendarId){
@@ -162,9 +163,11 @@
                     if(calendarList.hasOwnProperty(k)){
                         var conf = config(calendarList[k]),
                             request = gapi.client.calendar.events.list(conf);
+                        authors.push(k);
                         request.execute(function(resp){
+                            var result = resp.items.filter(function(a){ return a.author = authors[calls]});
+                            array = $.merge(array, result);
                             calls++;
-                            array = $.merge(array, resp.items);
                             if(calls === totalCalls){
                                 return inmuted.end(array);
                             }
@@ -227,7 +230,7 @@
                                     date: dateTime[0],
                                     fullDate: date[2] + " de " + instance.monthFullString(date[1]) ,
                                     title: item.summary,
-                                    author: item.organizer.displayName
+                                    author: item.author
                                 });
                             }
                             callback(results, instance);
