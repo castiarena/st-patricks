@@ -6,8 +6,7 @@ var templates = {
                     '</div>'+
                     '<div class="float-col__block calendar-info">'+
                         '<h5 class="color-verde">{{this.title}}</h5>'+
-                        '<p class="font-title">{{this.fullDate}} {{this.time}}</p>'+
-                        '<p><small>{{this.author}}</small></p>'+
+                        '<p class="font-title">{{this.fullDate}} {{this.time}} - <small>{{this.author}}</small></p>'+
                         '<a href="https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid={{this.eid}}&tmsrc=sps.arg@gmail.com&catt=false&pprop=HowCreated:DUPLICATE&hl=es&scp=ONE" target="_blank">Agendar en mi calendar</a>'+
                     '</div>'+
                     '<div class="clearfix"></div>'+
